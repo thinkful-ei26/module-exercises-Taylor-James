@@ -1,3 +1,4 @@
+'use strict';
 const store = (function() {
     const items = 
         [
@@ -24,7 +25,7 @@ const store = (function() {
     const findAndUpdateName = function(id, newName){
         try{
             Items.validateName(newName);
-            Items.findById(id).name = newName;
+            store.findById(id).name = newName;
           }
           catch(error){
               console.log(`Cannot update name: ${error.message}`);
