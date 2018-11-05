@@ -35,7 +35,7 @@ const store = (function() {
         this.hideCheckedItems = !this.hideCheckedItems; 
     }
     const setSearchTerm = function(text){
-        this.searchTerm += text; 
+        this.searchTerm = text; 
     };
     //finding an element by its ID. then remove from this.items
     const findAndDelete = function(id){
