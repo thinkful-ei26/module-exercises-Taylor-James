@@ -1,6 +1,8 @@
-/* global store, cuid */
+/* global store, Items */
 'use strict';
 // eslint-disable-next-line no-unused-vars
+/*eslint-env jquery*/
+
 const shoppingList = (function(){
 
   function generateItemElement(item) {
@@ -56,7 +58,15 @@ const shoppingList = (function(){
   
   
   function addItemToShoppingList(itemName) {
-    store.items.push({ id: cuid(), name: itemName, checked: false });
+    try {
+      Items.validateName(itemName);
+      const newlyMadeObject = Items.create(itemName);
+    store.items.push(newlyMadeObject);
+    render();
+    }
+    catch (error) {
+      console.log(`Cannot add item: ${error.message}`);
+    }
   }
   
   function handleNewItemSubmit() {
