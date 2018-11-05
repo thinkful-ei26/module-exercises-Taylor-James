@@ -7,7 +7,4 @@ $(document).ready(function() {
   shoppingList.bindEventListeners();
   shoppingList.render();
 });
-console.log(store);
-console.log(store.fooTwo);
-console.log(store.foo);
 
